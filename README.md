@@ -8,7 +8,7 @@ Upon running, the tool will ask for user input in the format “X x Y” where X
 
 In the next step the user specifies whether a "low_level" or "template" perturbation is desired.
 
-Template perturbation
+## Template perturbation
 
 In this mode the user inputs the shape, colour, dimensions or radius and starting locus for the template perturbation. Currently square, rectangle and circle are supported shapes
 along with the colours of the rainbow.
@@ -17,9 +17,11 @@ Square Example: square yellow 10 x 10 5 x 5 - Here 10 x 10 is the dimension of t
 
 Circle Example: circle indigo 10 7 x 8 - Here 10 is the radius of the circle (in pixels) while 7 x 8 is the pixel point at which the centre of the circle lies.
 
-Low level perturbation
+## Low level perturbation
 
-In this mode user input requires that each individual pixel to be mutated has to be specified by inputting the pixel of the form “X x Y” where X and Y represent the specific pixel at point (X,Y) on the image template that is graphically represented. On the same line the mutation for RGB in values has to be specified. This has to be done for every pixel that needs mutating. This is followed by either a 1 for absolute pixel value or 0 or relative pixel value mutation. For example:
+There are two submodes to low level perturbation: absolute and relative.
+
+User input requires that each individual pixel to be mutated has to be specified by inputting the pixel of the form “X x Y” where X and Y represent the specific pixel at point (X,Y) on the image template that is graphically represented. On the same line the mutation for RGB in values has to be specified. This has to be done for every pixel that needs mutating. This is followed by either a 1 for absolute pixel value or 0 or relative pixel value mutation. For example:
 
 14 x 17 10 -19 130 0 - specifies that the pixel at point 14 x 17 undergoes mutation of +10 R value, -19 G value and +130 B value.
 
