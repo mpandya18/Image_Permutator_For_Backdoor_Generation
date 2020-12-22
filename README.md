@@ -10,12 +10,15 @@ In the next step the user specifies whether a "low_level" or "template" perturba
 
 ## Template perturbation
 
-In this mode the user inputs the shape, colour, dimensions or radius and starting locus for the template perturbation. Currently square, rectangle and circle are supported shapes
-along with the colours of the rainbow.
+In this mode the user inputs the shape, colour, dimensions or radius and starting locus for the template perturbation. Currently square, rectangle and circle are supported shapes along with the colours of the rainbow. The option to specify custom colours via RGB values is also there.
 
 Square Example: square yellow 10 x 10 5 x 5 - Here 10 x 10 is the dimension of the square perturbation while 5 x 5 is the pixel point on the image that the top left of the square will be at.
 
 Circle Example: circle indigo 10 7 x 8 - Here 10 is the radius of the circle (in pixels) while 7 x 8 is the pixel point at which the centre of the circle lies.
+
+Regular Polygon Example: regular_polygon 125_253_86 8 100 500 x 500 - Here 125, 253 and 86 are RGB values respectively, 8 is the number of sides the regular polygon should have, 100 is the radius of the polygon and 500 x 500 is the centre locus of the polygon in pixels.
+
+Non-Regular Polygon Example: polygon violet 360 124 345 645 324 234 432 134 - Here all numbers are x and y coordinates of all the vertices of the polygon respectively i.e. (360, 124), (345, 645) etc.
 
 ## Low level perturbation
 
