@@ -51,3 +51,32 @@ Once selected, the tool will ask for input specifying the starting pixel (top-le
 12 x 15 is the pixel at width 12 and height 15 going right and down from the top left at 0 x 0.
 
 ## Rigorously Characterised
+
+The aim of rigorous characterisation is to specify clearly the intent of the backdoor attack upon a model. The D5 Mnemonic defines five levels of intent:
+
+Decieve - the aim is to decieve the user, potentially misclassifying output.
+Degrade - the aim is to degrade the performance of the model.
+Deny - the aim is to deny the service provided by the model
+Disrupt - the aim is to disrupt the service provided by the model.
+Destroy - the aim is to destroy the service provided by the model.
+
+Three measures are also defined here:
+
+Disruption - a measure of the variation between original and mutated pixel values (values are between 0 and 100). 
+Dispersion - a measure of of overall number of mutations per image (values are between 0 and 100).
+Stealth - a measure of how difficult the mutation is to detect (values are between 0 and 100).
+
+In descending order, the 5Ds increase the intensity of the disruption level in the attack. Once the user has entered the desired intent, the tool will ask whether values
+for Disruption and Dispersion are to be autoset or manually entered. Inputting "auto" will automatically set the disruption within the boundaries specified as per below:
+
+Decieve - 0-20 disruption
+Degrade - 20-40 disruption
+Deny - 40-60 disruption
+Disrupt - 60-80 disruption
+Destroy - 80-100 disruption
+
+The dispersion will be allocated randomly a value between 0 and 100.
+
+Inputting "manual" will allow the user to specify the disruption within the given boundaries defined by the intent selected and also the dispersion value.
+Once these are specified the tool then proceeds similarly to the "uniform" selection in terms of generating or loading the dataset. The tool will generated randomly
+perturbations in each image within the dataset depending on the disruption and dispersion values specified. A higher dispersion will increase the number of mutations, while a higher disruption will increase the value of mutations i.e. the difference between the original and mutated pixel values. The aim is to simulate a backdoor attack upon training data for a model.
