@@ -2,13 +2,23 @@
 
 This tool has been designed to generate precise pixel-level mutations in images for the purposes of rigorous analysis of backdoor attacks in deep neural networks.
 
-Upon running, the tool will ask for user input in the format “X x Y” where X and Y are real, positive integers representing the pixel width and pixel height. This is to specify the pixel resolution for a template that will carry out the pixel mutations. For example:
+Upon running the tool the user is asked to specify whether backdoors are to be generated in a randomly generated or existing dataset. Input "randomly generated" or "existing" to proceed further. 
+
+Thereafter the tool will ask whether "uniform" or "rigorously characterised" backdoors are to be generated.
+
+## Uniform
+
+If "randomly generated" was inputted, the tool will ask for user input in the format “X x Y” where X and Y are real, positive integers representing the pixel width and pixel height. This is to specify the pixel resolution for a template that will carry out the pixel mutations. For example:
 
 25 x 25  - specifies an image template of twenty-five by twenty-five pixel resolution. 1 x 1 is the first top left corner pixel and 25 x 25 is the final bottom right corner pixel.
 
-In the next step the user specifies whether a "low_level" or "template" perturbation is desired.
+The tool will also ask for the number of images to be generated in the dataset.
 
-## Template perturbation
+If "existing" was inputted initially, a filedialog will now open in which the user has to select the folder containing the dataset.
+
+In the next step the user specifies whether a "low_level", "template" or "pattern" perturbation is desired.
+
+### Template perturbation
 
 In this mode the user inputs the shape, colour, dimensions or radius and starting locus for the template perturbation. Currently square, rectangle, circle regular as well as non-regular polygons are supported shapes along with the colours of the rainbow. The option to specify custom colours via RGB values is also there.
 
@@ -20,7 +30,7 @@ Regular Polygon Example: regular_polygon 125_253_86 8 100 500 x 500 - Here 125, 
 
 Non-Regular Polygon Example: polygon violet 360 124 345 645 324 234 432 134 - Here all numbers are x and y coordinates of all the vertices of the polygon respectively i.e. (360, 124), (345, 645) etc.
 
-## Low level perturbation
+### Low level perturbation
 
 There are two submodes to low level perturbation: absolute and relative.
 
@@ -31,3 +41,13 @@ User input requires that each individual pixel to be mutated has to be specified
 13 x 19 25 113 12 1 - specifies that the pixel at point 13 x 19 is absolutely mutated to the new values of 25 R, 113 G and 12 C.
 
 Note that pixel mutations that result in RGB values lower than 0 or greater than 255 only permute to 0 or 255 respectively. When no more mutations are desired, inputting “end” into user input puts an end to the process and the tool then proceeds to carry out the permutation.
+
+### Pattern perturbation
+
+In this mode a filedialog will open and the user has to select an image file consisting of the pattern to be inserted.
+
+Once selected, the tool will ask for input specifying the starting pixel (top-left) location for the pattern to be inserted. This should be inputted in the format X x Y where X is the width and Y is the hight in pixels. For example:
+
+12 x 15 is the pixel at width 12 and height 15 going right and down from the top left at 0 x 0.
+
+## Rigorously Characterised
